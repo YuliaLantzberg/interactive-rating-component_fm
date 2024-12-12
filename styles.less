@@ -116,10 +116,6 @@ h6 {
 	flex-direction: @direction;
 }
 
-.thanks {
-	display: none;
-}
-
 // GENERAL STYLES
 
 body {
@@ -139,6 +135,7 @@ body {
 		border-radius: 0.938rem;
 		.flex(center,center, column);
 		padding: 1.5rem;
+		max-width: 25.75rem;
 	}
 
 	.header {
@@ -162,6 +159,14 @@ body {
 	text-transform: uppercase;
 	color: @clr-neutral-blue-900;
 	.heading-medium();
+	cursor: pointer;
+	transition: background-color 0.3s;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: @clr-white;
+	}
 }
 
 // RATINGS PAGE STYLES
@@ -196,8 +201,40 @@ body {
 					padding-top: 0.5rem;
 					.rating-text();
 					color: @clr-neutral-grey-400;
+					cursor: pointer;
+					transition: all 0.3s;
+
+					&:hover {
+						background-color: @clr-primary-orange-500;
+						color: @clr-neutral-blue-800;
+					}
+
+					&.active {
+						background-color: @clr-white;
+						color: @clr-neutral-blue-800;
+					}
 				}
 			}
 		}
+	}
+}
+
+// THANKS SECTION STYLES
+.thanks {
+	.flex(center, center, column);
+	display: none;
+	.thanks__header {
+		.thanks__summary {
+			text-align: center;
+			margin: 1rem 0;
+			color: @clr-primary-orange-500;
+			background-color: @clr-neutral-blue-800;
+			padding: 0.563rem;
+			border-radius: 1.406rem;
+		}
+	}
+
+	.thanks__main {
+		text-align: center;
 	}
 }
