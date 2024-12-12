@@ -87,28 +87,117 @@ h6 {
 @fw-bold: 700;
 
 .heading-large {
-	font-size: 1.75rem;
+	font-size: clamp(1.5rem, 3.65vw, 1.75rem);
 	font-weight: @fw-bold;
 }
 
 .rating-text {
-	font-size: 1rem;
+	font-size: clamp(0.875rem, 2.083vw, 1rem);
 	font-weight: @fw-bold;
 	letter-spacing: 0.2px;
 	line-height: 1.5;
 }
 
 .heading-medium {
-	font-size: @fs-regular;
+	font-size: clamp(0.875rem, 1.95vw, @fs-regular);
 	letter-spacing: 2px;
 	font-weight: @fw-bold;
 }
 
 .body-text {
-	font-size: @fs-regular;
+	font-size: clamp(0.875rem, 1.953vw, @fs-regular);
 	line-height: 1.6;
+}
+
+.flex(@align, @justify, @direction) {
+	display: flex;
+	align-items: @align;
+	justify-content: @justify;
+	flex-direction: @direction;
 }
 
 .thanks {
 	display: none;
+}
+
+// GENERAL STYLES
+
+body {
+	background-color: @clr-neutral-blue-900;
+	color: @clr-neutral-grey-400;
+	display: grid;
+	place-content: center;
+	min-height: 100vh;
+	padding: 1.5rem;
+	.body-text();
+
+	main {
+		background-image: radial-gradient(
+			@clr-neutral-blue-800,
+			@clr-neutral-blue-900
+		);
+		border-radius: 0.938rem;
+		.flex(center,center, column);
+		padding: 1.5rem;
+	}
+
+	.header {
+		.heading-large();
+		color: @clr-white;
+	}
+}
+.round {
+	width: 2.5rem;
+	height: 2.5rem;
+	background-color: @clr-neutral-blue-800;
+	border-radius: 50%;
+}
+
+.btn {
+	border-radius: 1.406rem;
+	background-color: @clr-primary-orange-500;
+	border: none;
+	outline: none;
+	padding: 0.875rem;
+	text-transform: uppercase;
+	color: @clr-neutral-blue-900;
+	.heading-medium();
+}
+
+// RATINGS PAGE STYLES
+
+.rating {
+	.flex(felx-start, center, column);
+	gap: 2rem;
+	.rating__hero {
+		.flex(center, center, column);
+	}
+	.rating__main {
+		.flex(flex-start, center, column);
+		gap: 1rem;
+
+		.rating__options {
+			display: grid;
+			width: 100%;
+			gap: 1rem;
+
+			fieldset {
+				.flex(flex-start, space-between, row);
+				border: none;
+				.rating__option[type="radio"] {
+					opacity: 0;
+					position: fixed;
+					width: 0;
+				}
+				.rating__option-label {
+					display: inline-block;
+					text-align: center;
+					vertical-align: center;
+					padding-top: 0.5rem;
+					.rating-text();
+					color: @clr-neutral-grey-400;
+				}
+			}
+		}
+	}
 }
