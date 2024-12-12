@@ -1,3 +1,4 @@
+// CSS RESET
 /* 1. Use a more-intuitive box-sizing model */
 *,
 *::before,
@@ -65,4 +66,49 @@ h6 {
 #root,
 #__next {
 	isolation: isolate;
+}
+
+// VARIABLES
+// ## Colors
+
+@clr-primary-orange-500: hsl(25, 97%, 53%);
+@clr-white: hsl(0, 0%, 100%);
+@clr-neutral-grey-400: hsl(217, 12%, 63%);
+@clr-neutral-blue-800: hsl(213, 19%, 18%);
+@clr-neutral-blue-900: hsl(216, 12%, 8%);
+
+// ## Typography
+@fs-regular: 0.938rem;
+
+// ### Font
+
+@ff-regular: "Overpass", sans-serif;
+@fw-regular: 400;
+@fw-bold: 700;
+
+.heading-large {
+	font-size: 1.75rem;
+	font-weight: @fw-bold;
+}
+
+.rating-text {
+	font-size: 1rem;
+	font-weight: @fw-bold;
+	letter-spacing: 0.2px;
+	line-height: 1.5;
+}
+
+.heading-medium {
+	font-size: @fs-regular;
+	letter-spacing: 2px;
+	font-weight: @fw-bold;
+}
+
+.body-text {
+	font-size: @fs-regular;
+	line-height: 1.6;
+}
+
+.thanks {
+	display: none;
 }
