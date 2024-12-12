@@ -116,6 +116,11 @@ h6 {
 	flex-direction: @direction;
 }
 
+.active-state(@bcg-color, @text-color) {
+	background-color: @bcg-color;
+	color: @text-color;
+}
+
 // GENERAL STYLES
 
 body {
@@ -197,7 +202,6 @@ body {
 				.rating__option-label {
 					display: inline-block;
 					text-align: center;
-					vertical-align: center;
 					padding-top: 0.5rem;
 					.rating-text();
 					color: @clr-neutral-grey-400;
@@ -205,13 +209,11 @@ body {
 					transition: all 0.3s;
 
 					&:hover {
-						background-color: @clr-primary-orange-500;
-						color: @clr-neutral-blue-800;
+						.active-state(@clr-primary-orange-500, @clr-neutral-blue-800);
 					}
 
 					&.active {
-						background-color: @clr-white;
-						color: @clr-neutral-blue-800;
+						.active-state(@clr-white, @clr-neutral-blue-800);
 					}
 				}
 			}
@@ -227,8 +229,7 @@ body {
 		.thanks__summary {
 			text-align: center;
 			margin: 1rem 0;
-			color: @clr-primary-orange-500;
-			background-color: @clr-neutral-blue-800;
+			.active-state( @clr-neutral-blue-800, @clr-primary-orange-500);
 			padding: 0.563rem;
 			border-radius: 1.406rem;
 		}
